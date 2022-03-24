@@ -15,8 +15,7 @@ import { ChevronDownIcon } from "@heroicons/react/solid";
 const solutions = [
   {
     name: "Analytics",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
+    description: "Get a better understanding of where your traffic is coming from.",
     href: "#",
     icon: ChartBarIcon,
   },
@@ -40,42 +39,15 @@ const solutions = [
   },
   {
     name: "Automations",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
+    description: "Build strategic funnels that will drive your customers to convert",
     href: "#",
     icon: RefreshIcon,
   },
   {
     name: "Reports",
-    description:
-      "Get detailed reports that will help you make more informed decisions ",
+    description: "Get detailed reports that will help you make more informed decisions ",
     href: "#",
     icon: DocumentReportIcon,
-  },
-];
-const resources = [
-  {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
-    href: "#",
-  },
-  {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
-    href: "#",
-  },
-  {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
-    href: "#",
-  },
-  {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
-    href: "#",
   },
 ];
 
@@ -91,11 +63,7 @@ const HomeHeader = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Workflow</span>
-              <img
-                className="h-8 w-auto sm:h-10"
-                src={require("assets/img/tgopbaby-logo.png")}
-                alt=""
-              />
+              <img className="h-8 w-auto sm:h-10" src={require("assets/img/tgopbaby-logo.png")} alt="" />
             </a>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
@@ -105,16 +73,16 @@ const HomeHeader = () => {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
-            <Popover className="relative">
+            {/* <Popover className="relative">
               {({ open }) => (
                 <>
                   <Popover.Button
                     className={classNames(
                       open ? "text-gray-900" : "text-gray-500",
-                      "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      "group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     )}
                   >
-                    <span>Solutions</span>
+                    <span>首頁</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? "text-gray-600" : "text-gray-400",
@@ -143,18 +111,11 @@ const HomeHeader = () => {
                               className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                             >
                               <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white sm:h-12 sm:w-12">
-                                <item.icon
-                                  className="h-6 w-6"
-                                  aria-hidden="true"
-                                />
+                                <item.icon className="h-6 w-6" aria-hidden="true" />
                               </div>
                               <div className="ml-4">
-                                <p className="text-base font-medium text-gray-900">
-                                  {item.name}
-                                </p>
-                                <p className="mt-1 text-sm text-gray-500">
-                                  {item.description}
-                                </p>
+                                <p className="text-base font-medium text-gray-900">{item.name}</p>
+                                <p className="mt-1 text-sm text-gray-500">{item.description}</p>
                               </div>
                             </a>
                           ))}
@@ -164,32 +125,29 @@ const HomeHeader = () => {
                   </Transition>
                 </>
               )}
-            </Popover>
+            </Popover> */}
 
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Pricing
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              首頁
             </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Partners
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              賦能
             </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Company
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              這群人與團隊
+            </a>
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              合作夥伴
+            </a>
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              大寶貝們
+            </a>
+            <a href="#" className="font-seto text-[22px] font-medium text-black hover:text-gray-500">
+              群人寶寶大全
             </a>
           </Popover.Group>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
-            >
+          {/* <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            <a href="#" className="whitespace-nowrap text-[22px] font-medium text-black hover:text-gray-500">
               Sign in
             </a>
             <a
@@ -198,7 +156,7 @@ const HomeHeader = () => {
             >
               Sign up
             </a>
-          </div>
+          </div> */}
         </div>
 
         <Transition
@@ -242,9 +200,7 @@ const HomeHeader = () => {
                         <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
                           <item.icon className="h-6 w-6" aria-hidden="true" />
                         </div>
-                        <div className="ml-4 text-base font-medium text-gray-900">
-                          {item.name}
-                        </div>
+                        <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
                       </a>
                     ))}
                   </nav>
@@ -252,22 +208,13 @@ const HomeHeader = () => {
               </div>
               <div className="py-6 px-5">
                 <div className="grid grid-cols-2 gap-4">
-                  <a
-                    href="#"
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
-                  >
+                  <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                     Pricing
                   </a>
-                  <a
-                    href="#"
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
-                  >
+                  <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                     Partners
                   </a>
-                  <a
-                    href="#"
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
-                  >
+                  <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
                     Company
                   </a>
                 </div>

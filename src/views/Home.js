@@ -1,93 +1,5 @@
-import {
-  ChatAltIcon,
-  DocumentReportIcon,
-  HeartIcon,
-  InboxIcon,
-  PencilAltIcon,
-  ReplyIcon,
-  SparklesIcon,
-  TrashIcon,
-  UsersIcon,
-} from "@heroicons/react/outline";
-
+import _ from "lodash";
 import Marquee from "react-fast-marquee";
-
-const features = [
-  {
-    name: "Unlimited Inboxes",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: InboxIcon,
-  },
-  {
-    name: "Manage Team Members",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: UsersIcon,
-  },
-  {
-    name: "Spam Report",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: TrashIcon,
-  },
-  {
-    name: "Compose in Markdown",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: PencilAltIcon,
-  },
-  {
-    name: "Team Reporting",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: DocumentReportIcon,
-  },
-  {
-    name: "Saved Replies",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: ReplyIcon,
-  },
-  {
-    name: "Email Commenting",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: ChatAltIcon,
-  },
-  {
-    name: "Connect with Customers",
-    description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
-    icon: HeartIcon,
-  },
-];
-const metrics = [
-  {
-    id: 1,
-    stat: "8K+",
-    emphasis: "Companies",
-    rest: "use laoreet amet lacus nibh integer quis.",
-  },
-  {
-    id: 2,
-    stat: "25K+",
-    emphasis: "Countries around the globe",
-    rest: "lacus nibh integer quis.",
-  },
-  {
-    id: 3,
-    stat: "98%",
-    emphasis: "Customer satisfaction",
-    rest: "laoreet amet lacus nibh integer quis.",
-  },
-  {
-    id: 4,
-    stat: "12M+",
-    emphasis: "Issues resolved",
-    rest: "lacus nibh integer quis.",
-  },
-];
 
 const marqueeImages = [
   require("assets/img/LINE_ALBUM_220226_5.png"),
@@ -97,22 +9,367 @@ const marqueeImages = [
   require("assets/img/LINE_ALBUM_220226_1.png"),
 ];
 
+const PHASE_1 = [
+  {
+    num: "01",
+    title: "持有群人寶寶NFT將免費獲得專屬設計的周邊空投",
+    content: [
+      "群人寶寶NFT持有者可免費領取精心設計的禮物，一個NFT限兌換一次！100%對應發行數量，尊絕限量！敬請期待禮物內容～",
+    ],
+    shadowColor: "#FFD66D",
+  },
+  {
+    num: "02",
+    title: "特卡獲得特殊NFT空投 ，再享這群人影片收入分紅！",
+    content: [
+      "群人寶寶NFT中將藏有稀有的特卡，特卡持有者將獲得獨一無二的這群人Youtube經典影片NFT空投。特卡中還有超級特卡，將獲得對應影片的部分廣告收入分紅！超乎想像的驚人福利！",
+    ],
+    shadowColor: "#FFC66D",
+  },
+  {
+    num: "03",
+    title: "群人商城大禮抽獎 月月抽2名！",
+    content: [
+      "持有群人寶寶NFT就可參加每個月的大禮抽獎！在群人代言的精品商城中網羅的各種嚴選商品裡面任選一件商品，費用全免！",
+    ],
+    shadowColor: "#FF906D",
+  },
+  {
+    num: "04",
+    title: "合作夥伴神秘大禮抽獎! 不管是誰，先給群人寶寶來一點！",
+    content: [
+      "各大品牌各種精品贊助與尊貴體驗空投，持有群人寶寶NFT就可參加不定時的神秘大禮抽獎！有什麼大禮呢，請敬請期待～無時無刻都就想到群人寶寶～",
+    ],
+    shadowColor: "#FF6D6D",
+  },
+  {
+    num: "05",
+    title: "區塊鏈知識、創意、想像力等知識集結的社群",
+    content: [
+      "手把手帶領走入Web3.0世界，持有群人寶寶NFT的可加入限定頻道獲得幣圈專業的手把手教學，還可以獲得幣圈大大們的最新資訊！在浩瀚的Web3.0世界，你不再是一個人，你是“這群人”！",
+    ],
+    shadowColor: "#FF6DB3",
+  },
+  {
+    num: "06",
+    title: "Youtuber 我們是這群人",
+    content: [
+      "1. 打造華文最大Youtuber集散地！你會時常看到各個BIG BABY在社群出沒！",
+      "2. 持有群人寶寶的NFT並在社群中活躍，還有機會在這群人Youtube影片中出現！",
+    ],
+    shadowColor: "#F36DFF",
+  },
+  {
+    num: "07",
+    title: "聯盟合作 白名單抽不完",
+    content: ["與各種高品質項目合作，持有群人寶寶NFT就可參加各種厲害項目的福利抽獎活動！"],
+    shadowColor: "#AE6EFD",
+  },
+  {
+    num: "08",
+    title: "小驚喜 無處不在",
+    content: [
+      "不定期釋出各種群人寶寶福利，如：空投群人寶寶NFT LINE貼圖、群人寶寶NFT限定週邊商品限定購買權、這群人週邊商品優惠...等。",
+    ],
+    shadowColor: "#6D8DFF",
+  },
+  {
+    num: "09",
+    title: "線上線下活動 群人寶寶NFT專屬",
+    content: [
+      "變成了一家人之後，我們會互相扶持，在大家辛苦打拼之餘，我們會有個綠洲、有個家讓你回來放鬆享樂。各種線上的活動讓不管在哪裡的寶寶家人都能參加。也有線下的活動，讓大家不只有電腦前的互動，離開電腦世界也能享樂。活動還會送獎金！",
+    ],
+    shadowColor: "#6DB9FF",
+  },
+  {
+    num: "10",
+    title: "這群人電影圓夢計畫！ 帶著群人寶寶一起上大銀幕",
+    content: [
+      "群人寶寶NFT將會支援這群人的電影之路！這群人成功登上大銀幕，那群人寶寶持有者除了不定期收到最新消息、雙人電影票、包場觀影活動外，你的名字也會一起登上大螢幕！要是你持有複數個群人寶寶NFT，你的名字會越明顯！首輪電影營收扣除成本後的盈餘，將作為群人寶寶NFT社群與元宇宙第二階段的資金，另外還會分潤給所有持有群人寶寶的NFT持有者們！通通有獎！",
+    ],
+    video: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+    shadowColor: "#6DFFF6",
+  },
+];
+
+const TEAM_1 = [
+  {
+    avatar: require("assets/img/avatar-36.png"),
+    name: "木星",
+    instagram: "https://www.instagram.com/gillingraze/",
+    youtube: "https://www.youtube.com/channel/UCPO1xxOvoWZ6pCORmpwIx8g",
+  },
+  {
+    avatar: require("assets/img/avatar-38.png"),
+    name: "茵聲",
+    instagram: "https://www.instagram.com/ferrtsss/",
+    youtube: "https://www.youtube.com/c/Alina%E9%84%AD%E8%8C%B5%E8%81%B2",
+  },
+  {
+    avatar: require("assets/img/avatar-37.png"),
+    name: "董仔",
+    instagram: "https://www.instagram.com/donehannah/",
+    youtube: "https://www.youtube.com/c/%E4%B8%8D%E5%9B%89%E5%97%A6%E7%9C%8B%E8%91%A3%E4%BB%94",
+  },
+  {
+    avatar: require("assets/img/avatar-42.png"),
+    name: "展榮",
+    instagram: "https://www.instagram.com/keelongxu/",
+    youtube: "https://www.youtube.com/channel/UCeB5UXWltaHtGoxkwGXLzpg",
+  },
+  {
+    avatar: require("assets/img/avatar-40.png"),
+    name: "尼克",
+    instagram: "https://www.instagram.com/nickwang1988/",
+    youtube: "https://www.youtube.com/c/ASHLYNICK258",
+  },
+  {
+    avatar: require("assets/img/avatar-41.png"),
+    name: "展瑞",
+    instagram: "https://www.instagram.com/monday_rays/",
+    youtube: "https://www.youtube.com/channel/UCeB5UXWltaHtGoxkwGXLzpg",
+  },
+  {
+    avatar: require("assets/img/avatar-39.png"),
+    name: "石頭",
+    instagram: "https://www.instagram.com/tgopstone/",
+  },
+];
+
+const TEAM_2 = [
+  {
+    title: "企劃・社群",
+    avatar: require("assets/img/avatar-43.png"),
+    name: "J2鏈小姐-JNFR",
+    desc: "幣圈YouTuber與數個NFT項目的社群管理。擁有交易所、知名社群軟體、金融等的經驗。",
+  },
+  {
+    title: "企劃・社群",
+    avatar: require("assets/img/avatar-44.png"),
+    name: "JL",
+    desc: "從事日本動漫產業。在2019年與「進擊的巨人」打造第一個動漫NFT項目，擁有與50+IP合作的經驗。",
+  },
+  {
+    title: "工程團隊Lead",
+    avatar: require("assets/img/avatar-45.png"),
+    name: "REX",
+    desc: "資深Web3.0工程師。為資安與交易所後台的專家。帶領著專注於突破Web3.0的團隊。",
+  },
+  {
+    title: "設計・廣宣・公關",
+    avatar: require("assets/img/avatar-51.png"),
+    name: "這群人團隊",
+    desc: "百萬Youtuber團隊幕後成員們。總是盡全力帶給觀眾最新最有創意的體驗！",
+  },
+];
+
+const PARTNERS = [
+  {
+    logo: require("assets/img/ace-logo.png"),
+    name: "ACE王牌交易所",
+    content: [
+      "ACE Exchange是台灣首家合法合規的加密貨幣交易所，提供新台幣與虛擬貨幣交易，擁有雙保險機制，並與KPMG攜手落實反洗錢，讓用戶資產更安心！最重要的是交易掛單 及 台幣出入金 不分等級 皆零手續費！",
+      "針對剛進幣圈的新手們，也提供債權認購、定期定額投資、一鍵買賣，APP內即能一站購足，免去繁雜交易流程。",
+    ],
+    url: "https://ace.io/",
+  },
+  {
+    logo: require("assets/img/aromase-logo.png"),
+    name: "AROMASE艾瑪絲",
+    content: [
+      "MIT專業髮品AROMASE艾瑪絲 亞洲第一支同時得到「Seal Awards可持續創新獎」X「C2C循環經濟銅級認證」的美髮品牌，不只期許為地球多做一點，更是對頭皮最友善的洗髮精，絕不添加矽靈、不添加SLS、不添加人工色素、不添加皂鹼，不添加化學防腐劑，從內料的永續成分到瓶器的循環包裝，流到海洋土壤都不傷害環境。延續這樣的初心，艾瑪絲與您一同關注生態、呵護地球環境。",
+    ],
+    url: "https://www.aromase.com.tw",
+  },
+  {
+    name: "AND MORE...",
+  },
+];
+
+const BIG_BABY = [
+  {
+    name: "小豬",
+    avatar: require("assets/img/baby-avatar-50.png"),
+    url: "https://www.instagram.com/p/Caw3zJuJsBT",
+  },
+  {
+    name: "柯震東",
+    avatar: require("assets/img/baby-avatar-77.png"),
+    url: "https://www.instagram.com/kaikaiko",
+  },
+  {
+    name: "周湯豪",
+    avatar: require("assets/img/baby-avatar-74.png"),
+    url: "https://www.instagram.com/nickthereal4sho",
+  },
+  {
+    name: "陳零九",
+    avatar: require("assets/img/baby-avatar-61.png"),
+    url: "https://www.instagram.com/diegodtk09",
+  },
+  {
+    name: "謝坤達",
+    avatar: require("assets/img/baby-avatar-72.png"),
+    url: "https://www.instagram.com/hsieh_kunda",
+  },
+  {
+    name: "王大陸",
+    avatar: require("assets/img/baby-avatar-75.png"),
+    url: "https://www.instagram.com/taluwang",
+  },
+  {
+    name: "韋禮安",
+    avatar: require("assets/img/baby-avatar-51.png"),
+    url: "https://www.instagram.com/weibirdmusic",
+  },
+  {
+    name: "831-霸天",
+    avatar: require("assets/img/baby-avatar-60.png"),
+    url: "https://www.instagram.com/831_evilboy",
+  },
+  {
+    name: "831-劉逼",
+    avatar: require("assets/img/baby-avatar-59.png"),
+    url: "https://www.instagram.com/831liub",
+  },
+  {
+    name: "831-阿璞",
+    avatar: require("assets/img/baby-avatar-58.png"),
+    url: "https://www.instagram.com/831uplee",
+  },
+  {
+    name: "831-阿電",
+    avatar: require("assets/img/baby-avatar-57.png"),
+    url: "https://www.instagram.com/831_dan",
+  },
+  {
+    name: "831-小橘",
+    avatar: require("assets/img/baby-avatar-52.png"),
+    url: "https://www.instagram.com/831orange",
+  },
+  {
+    name: "ECHO",
+    avatar: require("assets/img/baby-avatar-76.png"),
+    url: "https://www.instagram.com/echobbox",
+  },
+  {
+    name: "小冰",
+    avatar: require("assets/img/baby-avatar-55.png"),
+    url: "https://www.instagram.com/yenchingsu",
+  },
+  {
+    name: "老高",
+    avatar: require("assets/img/baby-avatar-79.png"),
+    url: "https://www.instagram.com/mr.and.mrs.gao",
+  },
+  {
+    name: "阿滴",
+    avatar: require("assets/img/baby-avatar-48.png"),
+    url: "https://www.instagram.com/raydudaily",
+  },
+  {
+    name: "洋蔥",
+    avatar: require("assets/img/baby-avatar-53.png"),
+    url: "https://www.instagram.com/onionman__",
+  },
+  {
+    name: "聖結",
+    avatar: require("assets/img/baby-avatar-47.png"),
+    url: "https://www.instagram.com/qoop1113",
+  },
+  {
+    name: "酷炫",
+    avatar: require("assets/img/baby-avatar-54.png"),
+    url: "https://www.instagram.com/kevin0204660",
+  },
+  {
+    name: "含羞草",
+    avatar: require("assets/img/baby-avatar-78.png"),
+    url: "https://www.youtube.com/channel/UCCrwpId4G9sRQjLHaUv90YA/video",
+  },
+  {
+    name: "蕾拉",
+    avatar: require("assets/img/baby-avatar-73.png"),
+    url: "https://www.instagram.com/la.112814",
+  },
+  {
+    name: "陳百祥",
+    avatar: require("assets/img/baby-avatar-13.png"),
+    url: "https://www.instagram.com/baisiang.c",
+  },
+  {
+    name: "孟耿如",
+    avatar: require("assets/img/baby-avatar-56.png"),
+    url: "https://www.instagram.com/summer1991720",
+  },
+  {
+    name: "胡瑋杰",
+    avatar: require("assets/img/baby-avatar-49.png"),
+    url: "https://www.instagram.com/huweijie_",
+  },
+  {
+    avatar: require("assets/img/baby-avatar-empty.png"),
+  },
+  {
+    avatar: require("assets/img/baby-avatar-empty.png"),
+  },
+  {
+    avatar: require("assets/img/baby-avatar-empty.png"),
+  },
+  {
+    avatar: require("assets/img/baby-avatar-empty.png"),
+  },
+];
+
+const FAQ = [
+  {
+    question: "群人寶寶NFT的發行數量是多少？",
+    answer: "群人寶寶NFT共5,000隻，每一隻都是獨一無二的。",
+  },
+  {
+    question: "群人寶寶NFT的開賣日期是什麼時候？",
+    answer: [
+      "預計在4月開始販賣，詳細時間會再更新。敬請期待後續公佈鑄造日期。",
+      "",
+      "＊請留意，群人寶寶不會有任何私訊或私售，若遇上述情形100%是詐騙！",
+      "＊請加入，群人寶寶Discord、Twitter、Instagram以獲得正確官方消息！",
+    ],
+  },
+  {
+    question: "賦能是什麼？",
+    answer: "如同上述的Roadmap，第一階段的群人寶寶共有10+個賦能，並且持續增加中！",
+  },
+  {
+    question: "什麼是NFT？",
+    answer:
+      "NFT的全名是Non-fungible Token，意思就是非同質化代幣。簡單來說就是獨一無二不可以被代替的代幣。這些代幣可以跟數位的圖像、影片、文字、音樂...等連結，在網路上也能夠被證實成為獨一無二的東西。由於NFT是區塊鏈上的代幣，它無法被竄改或修正；當一個人給另外一個人這個代幣，這個代幣會如同真實世界一樣轉移過去。",
+  },
+  {
+    question: "想要買群人寶寶NFT該怎麼做？",
+    answer: [
+      "1. 註冊Metamask小狐狸錢包",
+      "2. 鑄造前確認你的錢包裡有足夠的以太幣支付包含Gas fee的總花費。",
+      "3. 鑄造時，指定的鑄造網址會有“連接”按鈕連結你的錢包。",
+      "4. 按下“鑄造“鍵，你將會被引導至簽署合約頁面，這時候你會清楚看到完成鑄造所需之包含gas fee的總費用。",
+      "5. 當你鑄造完成後，你的群人寶寶NFT將會出現在你的錢包和Opensea上。",
+    ],
+  },
+];
+
+const classNames = (...classes) => {
+  return classes.filter(Boolean).join(" ");
+};
+
 const Home = () => {
   return (
     <main>
       <div className="bg-[#FFFAF3]">
-        <img
-          className="h-full w-full object-cover"
-          src={require("assets/img/keyvisual.png")}
-          alt="People working on laptops"
-        />
+        <img className="h-full w-full object-cover" src={require("assets/img/keyvisual.png")} alt="" />
       </div>
 
-      <div className="bg-[url('assets/img/intro-bg.png')] bg-contain bg-no-repeat bg-[#080029]">
+      <div className="bg-[url('assets/img/intro-bg.png')] bg-contain bg-no-repeat aspect-[5760/4458] bg-[#080029]">
         <div className="pt-8 pb-8">
-          <h1 className="font-seto text-[64px] text-center mb-4">
-            不再是一個人，我們是這群人
-          </h1>
+          <h1 className="font-seto text-[64px] text-center mb-4">不再是一個人，我們是這群人</h1>
           <p className="font-seto text-lg text-center">
             這群人會成為「這群人」，都是因為有互相幫助的力量，也是因為有你們的力量。
             <br />
@@ -126,8 +383,7 @@ const Home = () => {
             也會有區塊鏈老手們手把手帶領大家認識網路世界的未來。
             <br />
             <br />
-            群人寶寶T-GOP
-            BABY是這群人所推出的由5,000個獨一無二的寶寶們組合而成的NFT系列。
+            群人寶寶T-GOP BABY是這群人所推出的由5,000個獨一無二的寶寶們組合而成的NFT系列。
             <br />
             是由200+個圖樣所組成，每個群人寶寶都不一樣，就像是這世界上有各種人組成的這群人。
             <br />
@@ -139,17 +395,15 @@ const Home = () => {
         </div>
         <div className="pt-8 pb-[200px]">
           <Marquee speed={60}>
-            {marqueeImages.map((image, i) => (
-              <img key={i} src={image} className="mx-[12.5px] h-[375px]" />
+            {marqueeImages.map((image, index) => (
+              <img key={`marquee_${index}`} src={image} className="mx-[12.5px] h-[calc(100vw/1920*375)]" alt="" />
             ))}
           </Marquee>
         </div>
       </div>
 
-      <div className="bg-[#080029] pb-32 mb-32">
-        <h1 className="font-seto text-[64px] text-white	text-center mb-4">
-          歡迎來到群人寶寶樂園!
-        </h1>
+      <div className="bg-[#080029]">
+        <h1 className="font-seto text-[64px] text-white	text-center mb-4">歡迎來到群人寶寶樂園!</h1>
         <p className="font-seto text-lg text-white text-center">
           這不只是單純的NFT而已
           <br />
@@ -157,483 +411,255 @@ const Home = () => {
           <br />
           讓我們一起前往元宇宙
         </p>
-        <div className="font-seto text-[72px] text-white text-center my-6">
-          ROADMAP PHASE 1
-        </div>
+        <div className="font-seto text-7xl text-white text-center my-6">ROADMAP PHASE 1</div>
 
         <div className="grid grid-cols-12 gap-y-7">
-          <div className="flex col-start-3 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#FFD66D]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">01</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  持有群人寶寶NFT將免費獲得專屬設計的周邊空投
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  群人寶寶NFT持有者可免費領取精心設計的禮物，一個NFT限兌換一次！100%對應發行數量，尊絕限量！敬請期待禮物內容～
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-4 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#FFC66D]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">02</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  特卡獲得特殊NFT空投 ，再享這群人影片收入分紅！
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  群人寶寶NFT中將藏有稀有的特卡，特卡持有者將獲得獨一無二的這群人Youtube經典影片NFT空投。特卡中還有超級特卡，將獲得對應影片的部分廣告收入分紅！超乎想像的驚人福利！{" "}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-3 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#FF906D]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">03</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  群人商城大禮抽獎 月月抽2名！
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  持有群人寶寶NFT就可參加每個月的大禮抽獎！在群人代言的精品商城中網羅的各種嚴選商品裡面任選一件商品，費用全免！
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-4 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#FF6D6D]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">04</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  合作夥伴神秘大禮抽獎! 不管是誰，先給群人寶寶來一點！
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  各大品牌各種精品贊助與尊貴體驗空投，持有群人寶寶NFT就可參加不定時的神秘大禮抽獎！有什麼大禮呢，請敬請期待～無時無刻都就想到群人寶寶～
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-3 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#FF6DB3]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">05</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  區塊鏈知識、創意、想像力等知識集結的社群
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  手把手帶領走入Web3.0世界，持有群人寶寶NFT的可加入限定頻道獲得幣圈專業的手把手教學，還可以獲得幣圈大大們的最新資訊！在浩瀚的Web3.0世界，你不再是一個人，你是“這群人”！
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-4 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#F36DFF]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">06</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  Youtuber 我們是這群人
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  1. 打造華文最大Youtuber集散地！你會時常看到各個BIG
-                  BABY在社群出沒！
-                  <br />
-                  2.
-                  持有群人寶寶的NFT並在社群中活躍，還有機會在這群人Youtube影片中出現！
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-3 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#AE6EFD]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">07</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  聯盟合作 白名單抽不完
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  與各種高品質項目合作，持有群人寶寶NFT就可參加各種厲害項目的福利抽獎活動！
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-4 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#6D8DFF]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">08</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  小驚喜 無處不在
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  不定期釋出各種群人寶寶福利，如：空投群人寶寶NFT
-                  LINE貼圖、群人寶寶NFT限定週邊商品限定購買權、這群人週邊商品優惠...等。
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-3 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#6DB9FF]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">09</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  線上線下活動 群人寶寶NFT專屬
-                </h2>
-                <p className="font-seto text-lg	text-black">
-                  變成了一家人之後，我們會互相扶持，在大家辛苦打拼之餘，我們會有個綠洲、有個家讓你回來放鬆享樂。各種線上的活動讓不管在哪裡的寶寶家人都能參加。也有線下的活動，讓大家不只有電腦前的互動，離開電腦世界也能享樂。活動還會送獎金！
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="flex col-start-4 col-span-7 bg-white p-6 min-h-[170px] rounded-[25px] shadow-[5px_5px_0px_3px_#6DFFF6]">
-            <div className="flex items-center">
-              <div className="font-seto text-8xl">10</div>
-              <div className="ml-8">
-                <h2 className="font-seto text-2xl mb-3 text-black">
-                  這群人電影圓夢計畫！ 帶著群人寶寶一起上大銀幕
-                </h2>
-                <p className="font-seto text-lg mb-6 text-black">
-                  群人寶寶NFT將會支援這群人的電影之路！這群人成功登上大銀幕，那群人寶寶持有者除了不定期收到最新消息、雙人電影票、包場觀影活動外，你的名字也會一起登上大螢幕！要是你持有複數個群人寶寶NFT，你的名字會越明顯！首輪電影營收扣除成本後的盈餘，將作為群人寶寶NFT社群與元宇宙第二階段的資金，另外還會分潤給所有持有群人寶寶的NFT持有者們！通通有獎！
-                </p>
-                <div className="aspect-w-16 aspect-h-9">
-                  <iframe
-                    className=""
-                    src="https://www.youtube.com/embed/aqz-KE-bpKQ"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
+          {PHASE_1.map(({ num, title, content, video, shadowColor }, index) => (
+            <div
+              key={`phase_2_${index}`}
+              className={classNames(
+                index % 2 ? "col-start-4" : "col-start-3",
+                `shadow-[5px_5px_0px_3px_${shadowColor}]`,
+                "flex col-span-7 bg-white p-6 min-h-[calc(100vw/1920*170)] rounded-[25px]"
+              )}
+            >
+              <div className="flex items-center">
+                <div className="font-seto text-8xl">{num}</div>
+                <div className="ml-8">
+                  <h2 className="font-seto text-2xl mb-3 text-black">{title}</h2>
+                  {content.map((text, index) => (
+                    <p key={`phase_1_content_${index}`} className="font-seto text-lg	text-black">
+                      {text}
+                    </p>
+                  ))}
+                  {video && (
+                    <div className="aspect-w-16 aspect-h-9 mt-6">
+                      <iframe
+                        src={video}
+                        title=""
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="font-seto text-2xl text-white text-center mt-28">
+          賦能將持續更新！
+          <br />
+          但當然大家的歡笑是我們的初衷，不只有賦能，大家玩得開心最重要！
+        </div>
+        <div className="font-seto text-7xl text-white text-center mt-16 mb-11">ROADMAP PHASE 2</div>
+        <div className="font-seto text-5xl text-white text-center mb-8">COMING SOON...</div>
+        <div className="relative flex justify-center aspect-[5760/3316] bg-[url('assets/img/discord-bg.png')] bg-contain bg-no-repeat">
+          <a className="absolute bottom-[calc(100vw/1920*325)]">
+            <img className="h-[calc(100vw/1920*70)]" src={require("assets/img/discord-btn.png")} alt="" />
+          </a>
         </div>
       </div>
 
-      {/* Hero section */}
-      <div className="relative">
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gray-100" />
-        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-          <div className="relative shadow-xl sm:rounded-2xl sm:overflow-hidden">
-            <div className="absolute inset-0">
-              <img
-                className="h-full w-full object-cover"
-                src={require("assets/img/keyvisual.png")}
-                alt="People working on laptops"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-800 to-indigo-700 mix-blend-multiply" />
-            </div>
-            <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
-              <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                <span className="block text-white">Take control of your</span>
-                <span className="block text-indigo-200">customer support</span>
-              </h1>
-              <p className="mt-6 max-w-lg mx-auto text-center text-xl text-indigo-200 sm:max-w-3xl">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
-              </p>
-              <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
-                <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-700 bg-white hover:bg-indigo-50 sm:px-8"
-                  >
-                    Get started
-                  </a>
-                  <a
-                    href="#"
-                    className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-500 bg-opacity-60 hover:bg-opacity-70 sm:px-8"
-                  >
-                    Live demo
-                  </a>
+      <div className="aspect-[5760/13854] bg-[url('assets/img/team-bg.png')] bg-contain bg-no-repeat">
+        <div className="flex flex-col items-center w-full">
+          <h1 className="font-seto text-[64px] text-center mt-28 mb-4">核心團隊</h1>
+          <div className="p-10 bg-white border-[5px] rounded-[30px] shadow-[5px_5px_0px_3px_#000000] w-[calc(100vw/1920*1307)]">
+            <div className="lg:mx-auto lg:max-w-7xl lg:grid lg:grid-cols-5 lg:grid-flow-col-dense lg:gap-6">
+              <div className="max-w-xl mx-auto sm:px-6 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-4 lg:col-span-2">
+                <div className="lg:px-0 lg:m-0 lg:relative lg:h-full">
+                  <img
+                    className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:w-full lg:max-w-none"
+                    src={require("assets/img/t-gop.png")}
+                    alt=""
+                  />
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Logo Cloud */}
-      <div className="bg-gray-100">
-        <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-sm font-semibold uppercase text-gray-500 tracking-wide">
-            Trusted by over 5 very average small businesses
-          </p>
-          <div className="mt-6 grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-              <img
-                className="h-12"
-                src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg"
-                alt="Tuple"
-              />
-            </div>
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-              <img
-                className="h-12"
-                src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg"
-                alt="Mirage"
-              />
-            </div>
-            <div className="col-span-1 flex justify-center md:col-span-2 lg:col-span-1">
-              <img
-                className="h-12"
-                src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
-                alt="StaticKit"
-              />
-            </div>
-            <div className="col-span-1 flex justify-center md:col-span-2 md:col-start-2 lg:col-span-1">
-              <img
-                className="h-12"
-                src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
-                alt="Transistor"
-              />
-            </div>
-            <div className="col-span-2 flex justify-center md:col-span-2 md:col-start-4 lg:col-span-1">
-              <img
-                className="h-12"
-                src="https://tailwindui.com/img/logos/workcation-logo-gray-400.svg"
-                alt="Workcation"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Alternating Feature Sections */}
-      <div className="relative pt-16 pb-32 overflow-hidden">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-gray-100"
-        />
-        <div className="relative">
-          <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-            <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
-              <div>
-                <div>
-                  <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600">
-                    <InboxIcon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                <div className="mt-6">
-                  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                    Stay on top of customer support
-                  </h2>
-                  <p className="mt-4 text-lg text-gray-500">
-                    Semper curabitur ullamcorper posuere nunc sed. Ornare
-                    iaculis bibendum malesuada faucibus lacinia porttitor.
-                    Pulvinar laoreet sagittis viverra duis. In venenatis sem
-                    arcu pretium pharetra at. Lectus viverra dui tellus ornare
-                    pharetra.
-                  </p>
-                  <div className="mt-6">
-                    <a
-                      href="#"
-                      className="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
-                    >
-                      Get started
+              <div className="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1 lg:col-span-3">
+                <div className="flex">
+                  <h2 className="font-seto text-4xl">這群人 T-GOP</h2>
+                  <div className="flex gap-7 flex-1 items-center justify-center">
+                    <a className="my-auto" href="#">
+                      <img className="h-[calc(100vw/1920*24)]" src={require("assets/img/twitter-icon.png")} alt="" />
+                    </a>
+                    <a className="my-auto" href="#">
+                      <img className="h-[calc(100vw/1920*30)]" src={require("assets/img/instagram-icon.png")} alt="" />
+                    </a>
+                    <a className="my-auto" href="#">
+                      <img className="h-[calc(100vw/1920*23.4)]" src={require("assets/img/youtube-icon.png")} alt="" />
                     </a>
                   </div>
                 </div>
+                <p className="font-seto mt-4 text-2xl">
+                  這群人TGOP（英語：This Group Of
+                  People），是由一群來自台灣專業戲劇科班畢業學生所組成的網路娛樂自媒體團隊，表現作品多由戲劇方式呈現，2011年8月3日於YouTube官方發表第一支自創作品，訂定每月15號與30號（2月則為28日）更新YouTube。著名代表的作品有《超瞎翻唱》、《經典語錄系列》，其中《超瞎翻唱》的觀看次數超過一千萬次。目前為止，在YouTube上擁有近350萬Subscriber。
+                </p>
               </div>
-              <div className="mt-8 border-t border-gray-200 pt-6">
-                <blockquote>
-                  <div>
-                    <p className="text-base text-gray-500">
-                      &ldquo;Cras velit quis eros eget rhoncus lacus ultrices
-                      sed diam. Sit orci risus aenean curabitur donec aliquet.
-                      Mi venenatis in euismod ut.&rdquo;
-                    </p>
-                  </div>
-                  <footer className="mt-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="flex-shrink-0">
-                        <img
-                          className="h-6 w-6 rounded-full"
-                          src="https://images.unsplash.com/photo-1509783236416-c9ad59bae472?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                          alt=""
-                        />
+            </div>
+            <div className="mt-12">
+              <ul className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-12">
+                {TEAM_1.map(({ avatar, name, instagram, youtube }, index) => (
+                  <li key={`team_1_${index}`} className={classNames(index <= 2 ? "xl:col-span-4" : "xl:col-span-3")}>
+                    <div className="flex flex-col items-center space-y-4">
+                      <img
+                        className="mx-auto h-20 w-20 rounded-full lg:w-[calc(100vw/1920*241)] lg:h-auto"
+                        src={avatar}
+                        alt=""
+                      />
+                      <div className="space-y-2">
+                        <h3 className="font-seto text-4xl	">{`這群人-${name}`}</h3>
                       </div>
-                      <div className="text-base font-medium text-gray-700">
-                        Marcia Hill, Digital Marketing Manager
+                      <div className="flex gap-5">
+                        {instagram && (
+                          <a className="mt-auto" href={instagram}>
+                            <img
+                              className="h-[calc(100vw/1920*30)]"
+                              src={require("assets/img/instagram-icon.png")}
+                              alt=""
+                            />
+                          </a>
+                        )}
+                        {youtube && (
+                          <a className="mt-auto" href={youtube}>
+                            <img
+                              className="h-[calc(100vw/1920*30)]"
+                              src={require("assets/img/youtube-icon.png")}
+                              alt=""
+                            />
+                          </a>
+                        )}
                       </div>
                     </div>
-                  </footer>
-                </blockquote>
-              </div>
-            </div>
-            <div className="mt-12 sm:mt-16 lg:mt-0">
-              <div className="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                <img
-                  className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-1.jpg"
-                  alt="Inbox user interface"
-                />
-              </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
-        <div className="mt-24">
-          <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-            <div className="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
-              <div>
-                <div>
-                  <span className="h-12 w-12 rounded-md flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600">
-                    <SparklesIcon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                <div className="mt-6">
-                  <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                    Better understand your customers
-                  </h2>
-                  <p className="mt-4 text-lg text-gray-500">
-                    Semper curabitur ullamcorper posuere nunc sed. Ornare
-                    iaculis bibendum malesuada faucibus lacinia porttitor.
-                    Pulvinar laoreet sagittis viverra duis. In venenatis sem
-                    arcu pretium pharetra at. Lectus viverra dui tellus ornare
-                    pharetra.
-                  </p>
-                  <div className="mt-6">
-                    <a
-                      href="#"
-                      className="inline-flex bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
-                    >
-                      Get started
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
-              <div className="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
+          <div className="flex mt-12">
+            {TEAM_2.map(({ title, avatar, name, desc }, index) => (
+              <div
+                key={`team_2_${index}`}
+                className="flex flex-col items-center p-4 mx-[7.5px] bg-white border-[5px] border-black rounded-[30px] shadow-[5px_5px_0px_3px_#000000] w-[calc(100vw/1920*312)]"
+              >
+                <h3 className="font-seto text-2xl">{title}</h3>
                 <img
-                  className="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none"
-                  src="https://tailwindui.com/img/component-images/inbox-app-screenshot-2.jpg"
-                  alt="Customer profile user interface"
+                  className="mx-auto h-20 w-20 rounded-full lg:w-[calc(100vw/1920*186)] lg:h-auto my-4"
+                  src={avatar}
+                  alt=""
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Gradient Feature Section */}
-      <div className="bg-gradient-to-r from-purple-800 to-indigo-700">
-        <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:pt-20 sm:pb-24 lg:max-w-7xl lg:pt-24 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-white tracking-tight">
-            Inbox support built for efficiency
-          </h2>
-          <p className="mt-4 max-w-3xl text-lg text-purple-200">
-            Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et
-            magna sit morbi lobortis. Blandit aliquam sit nisl euismod mattis
-            in.
-          </p>
-          <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-16">
-            {features.map((feature) => (
-              <div key={feature.name}>
-                <div>
-                  <span className="flex items-center justify-center h-12 w-12 rounded-md bg-white bg-opacity-10">
-                    <feature.icon
-                      className="h-6 w-6 text-white"
-                      aria-hidden="true"
-                    />
-                  </span>
-                </div>
-                <div className="mt-6">
-                  <h3 className="text-lg font-medium text-white">
-                    {feature.name}
-                  </h3>
-                  <p className="mt-2 text-base text-purple-200">
-                    {feature.description}
-                  </p>
-                </div>
+                <h3 className="font-seto text-2xl mb-2.5">{name}</h3>
+                <p className="font-seto text-m">{desc}</p>
               </div>
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Stats section */}
-      <div className="relative bg-gray-900">
-        <div className="h-80 absolute inset-x-0 bottom-0 xl:top-0 xl:h-full">
-          <div className="h-full w-full xl:grid xl:grid-cols-2">
-            <div className="h-full xl:relative xl:col-start-2">
-              <img
-                className="h-full w-full object-cover opacity-25 xl:absolute xl:inset-0"
-                src={require("assets/img/keyvisual.png")}
-                alt="People working on laptops"
-              />
+        <div className="flex flex-col items-center w-full">
+          <h1 className="font-seto text-[64px] text-center mt-28 mb-4">合作夥伴</h1>
+          <div className="font-seto text-2xl text-black text-center mt-2">
+            在未來會持續增加的合作夥伴，
+            <br />
+            將會為群人寶寶樂園帶來滿滿的好康和禮物，
+            <br />
+            還有滿滿的知識與體驗只獻給群人寶寶！
+          </div>
+          <div className="flex mt-12 gap-11">
+            <img className="h-[73px] self-center" src={require("assets/img/left-icon.png")} alt="" />
+            {PARTNERS.map(({ name, logo, content = [], url }, index) => (
               <div
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-gray-900 xl:inset-y-0 xl:left-0 xl:h-full xl:w-32 xl:bg-gradient-to-r"
-              />
-            </div>
+                key={`partner_${index}`}
+                className={classNames(
+                  _.isEmpty(content) ? "bg-[#454545] justify-center" : "bg-white",
+                  "flex flex-col items-center p-8 mx-[7.5px] border-[5px] border-black rounded-[30px] shadow-[5px_5px_0px_3px_#000000] w-[calc(100vw/1920*413)]"
+                )}
+              >
+                <img className="mx-auto lg:h-auto" src={logo} alt="" />
+                <h3
+                  className={classNames(_.isEmpty(content) ? "text-white text-4xl" : "text-2xl mt-8 mb-6", "font-seto")}
+                >
+                  {name}
+                </h3>
+                {content.map((text, index) => (
+                  <p key={`partner_content_${index}`} className="font-seto text-m">
+                    {text}
+                  </p>
+                ))}
+                {url && (
+                  <a className="mt-auto" href={url}>
+                    <img className="w-[calc(100vw/1920*35)]" src={require("assets/img/website-icon.png")} alt="" />
+                  </a>
+                )}
+              </div>
+            ))}
+            <img className="h-[73px] self-center" src={require("assets/img/right-icon.png")} alt="" />
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
-          <div className="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
-            <h2 className="text-sm font-semibold tracking-wide uppercase">
-              <span className="bg-gradient-to-r from-purple-300 to-indigo-300 bg-clip-text text-transparent">
-                Valuable Metrics
-              </span>
-            </h2>
-            <p className="mt-3 text-3xl font-extrabold text-white">
-              Get actionable data that will help grow your business
-            </p>
-            <p className="mt-5 text-lg text-gray-300">
-              Rhoncus sagittis risus arcu erat lectus bibendum. Ut in adipiscing
-              quis in viverra tristique sem. Ornare feugiat viverra eleifend
-              fusce orci in quis amet. Sit in et vitae tortor, massa. Dapibus
-              laoreet amet lacus nibh integer quis. Eu vulputate diam sit tellus
-              quis at.
-            </p>
-            <div className="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
-              {metrics.map((item) => (
-                <p key={item.id}>
-                  <span className="block text-2xl font-bold text-white">
-                    {item.stat}
-                  </span>
-                  <span className="mt-1 block text-base text-gray-300">
-                    <span className="font-medium text-white">
-                      {item.emphasis}
-                    </span>{" "}
-                    {item.rest}
-                  </span>
-                </p>
+
+        <div className="flex flex-col items-center">
+          <h1 className="font-seto text-[64px] text-center mt-28 mb-4">群人大寶貝們</h1>
+          <div className="font-seto text-2xl text-black text-center mt-2">
+            群人寶寶樂園榮幸邀請到的BIG BABIES❤️ 特別感謝友情站台～
+            <br />
+            大寶貝們不代表有合作關係或參與項目企劃，
+            <br />
+            但是他們都會是未來群人寶寶NFT持有者的一員！
+            <br />
+            說不定你會在群人寶寶樂園裡面看到他們喔！？
+          </div>
+          <div className="mt-12">
+            <ul className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-8 xl:grid-cols-7">
+              {BIG_BABY.map(({ avatar, name, url }, index) => (
+                <li key={`big_baby_${index}`}>
+                  <a
+                    href={url || "#"}
+                    className={classNames(!url && "cursor-default", "flex flex-col items-center space-y-4")}
+                  >
+                    <img
+                      className="mx-auto h-20 w-20 rounded-full lg:w-[calc(100vw/1920*153)] lg:h-auto"
+                      src={avatar}
+                      alt={name}
+                    />
+                  </a>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="bg-white">
-        <div className="max-w-4xl mx-auto py-16 px-4 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 lg:flex lg:items-center lg:justify-between">
-          <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span className="block">Ready to get started?</span>
-            <span className="-mb-1 pb-1 block bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-              Get in touch or create an account.
-            </span>
-          </h2>
-          <div className="mt-6 space-y-4 sm:space-y-0 sm:flex sm:space-x-5">
-            <a
-              href="#"
-              className="flex items-center justify-center bg-gradient-to-r from-purple-600 to-indigo-600 bg-origin-border px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white hover:from-purple-700 hover:to-indigo-700"
-            >
-              Learn more
-            </a>
-            <a
-              href="#"
-              className="flex items-center justify-center px-4 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-indigo-800 bg-indigo-50 hover:bg-indigo-100"
-            >
-              Get started
-            </a>
-          </div>
+      <div className="bg-[#FFFAF3]">
+        <h1 className="font-seto text-[64px] text-center mt-28 mb-4">FAQ</h1>
+        <div className="flex flex-col items-center gap-9">
+          {FAQ.map(({ question, answer }, index) => (
+            <div key={`faq_${index}`} className="flex flex-col-reverse w-[calc(100vw/1920*1307)] accordion">
+              <div
+                id={`faq_${index}`}
+                className="z-0 bg-white border-[5px] border-black rounded-[15px] mt-[-8px] collapse show"
+                aria-labelledby={`faq_${index}`}
+              >
+                <div className="accordion-body px-11 py-9">
+                  {_.flatten([answer]).map((text, index) => (
+                    <p key={`faq_answer_${index}`} className="font-seto text-2xl">
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+              <div className="z-10 bg-[#FFE485] border-[5px] border-black rounded-[15px] pl-11 py-9 flex items-center accordion-header">
+                <h1 className="font-seto text-5xl">{question}</h1>
+                <a
+                  role="button"
+                  className="accordion-button bg-white w-[calc(100vw/1920*84)] h-[calc(100vw/1920*84)] border-[5px] border-black rounded-full ml-auto mr-8 flex items-center justify-center"
+                  data-bs-toggle="collapse"
+                  href={`#faq_${index}`}
+                  aria-expanded="true"
+                  aria-controls={`faq_${index}`}
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </main>

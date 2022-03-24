@@ -3,20 +3,31 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'SetoFont';
+  font-family: "SetoFont";
   src: url(./assets/fonts/setofont.ttf);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url(assets/img/up-icon.png);
+  transform: rotate(-180deg);
+}
+.accordion-button::after {
+  width: calc(100vw / 1920 * 43);
+  height: calc(100vw / 1920 * 27);
+  background-image: url(assets/img/up-icon.png);
+  margin-left: unset;
+  background-size: 100%;
+
 }
